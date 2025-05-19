@@ -1,3 +1,11 @@
+# 1.
+# GoogleUtilities는 Objective-C로 작성되어 있으며 모듈 맵이 정의되어 있지 않아,
+# Swift 기반 FirebaseCoreInternal에서 import 시 오류 발생.
+# :modular_headers => true를 설정하면 CocoaPods가 module map을 자동 생성하여
+# Swift에서 GoogleUtilities를 정상적으로 import할 수 있도록 만들어준다.
+pod 'GoogleUtilities', :modular_headers => true  
+
+
 # Resolve react_native_pods.rb with node to allow for hoisting
 require Pod::Executable.execute_command('node', ['-p',
   'require.resolve(
@@ -11,7 +19,13 @@ prepare_react_native_project!
 linkage = ENV['USE_FRAMEWORKS']
 if linkage != nil
   Pod::UI.puts "Configuring Pod with #{linkage}ally linked Frameworks".green
-  use_frameworks! :linkage => linkage.to_sym
+
+  # 2.  
+  # Firebase와 같은 Swift 기반 pod은 기본적으로 동적(.framework)으로 빌드되어야 하지만,
+  # React Native는 정적 링크(static linking) 기반이므로 충돌이 발생할 수 있음.
+  # :linkage => :static 설정을 통해 Swift pod도 정적 링크 형태로 통합되도록 하여
+  # React Native 프로젝트와의 호환성을 유지하면서 Firebase를 사용할 수 있게 해준다.
+  use_frameworks! :linkage => :static
 end
 
 target 'ReactNativeRecipes' do
