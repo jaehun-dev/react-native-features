@@ -1,15 +1,21 @@
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import {StyleSheet, Text, View} from 'react-native';
 
-import { Button } from './Button';
+import {Button} from './Button';
 
 export type HeaderProps = {
-  user?: { name: string };
+  user?: {name: string};
   onLogin: () => void;
   onLogout: () => void;
   onCreateAccount: () => void;
 };
 
-export const Header = ({ user, onLogin, onLogout, onCreateAccount }: HeaderProps) => (
+export const Header = ({
+  user,
+  onLogin,
+  onLogout,
+  onCreateAccount,
+}: HeaderProps) => (
   <View>
     <View style={styles.wrapper}>
       <View style={styles.logoContainer}>
@@ -21,11 +27,21 @@ export const Header = ({ user, onLogin, onLogout, onCreateAccount }: HeaderProps
             <Text>Welcome, </Text>
             <Text style={styles.userName}>{user.name}!</Text>
 
-            <Button style={styles.button} size="small" onPress={onLogout} label="Log out" />
+            <Button
+              style={styles.button}
+              size="small"
+              onPress={onLogout}
+              label="Log out"
+            />
           </>
         ) : (
           <>
-            <Button style={styles.button} size="small" onPress={onLogin} label="Log in" />
+            <Button
+              style={styles.button}
+              size="small"
+              onPress={onLogin}
+              label="Log in"
+            />
 
             <Button
               style={styles.button}

@@ -1,19 +1,19 @@
-import { useState } from 'react';
+import React, {useState} from 'react';
 
-import { Linking, StyleSheet, Text, View } from 'react-native';
+import {Linking, StyleSheet, Text, View} from 'react-native';
 
-import { Header } from './Header';
+import {Header} from './Header';
 
 export const Page = () => {
-  const [user, setUser] = useState<{ name: string } | undefined>();
+  const [user, setUser] = useState<{name: string} | undefined>();
 
   return (
     <View>
       <Header
         user={user}
-        onLogin={() => setUser({ name: 'Jane Doe' })}
+        onLogin={() => setUser({name: 'Jane Doe'})}
         onLogout={() => setUser(undefined)}
-        onCreateAccount={() => setUser({ name: 'Jane Doe' })}
+        onCreateAccount={() => setUser({name: 'Jane Doe'})}
       />
 
       <View style={styles.section}>
@@ -23,29 +23,28 @@ export const Page = () => {
         <Text style={styles.p}>
           We recommend building UIs with a{' '}
           <Text
-            style={[styles.a, { fontWeight: 'bold' }]}
+            style={[styles.a, {fontWeight: 'bold'}]}
             role="link"
             onPress={() => {
               Linking.openURL('https://componentdriven.org');
-            }}
-          >
+            }}>
             <Text>component-driven</Text>
           </Text>{' '}
           process starting with atomic components and ending with pages.
         </Text>
         <Text style={styles.p}>
-          Render pages with mock data. This makes it easy to build and review page states without
-          needing to navigate to them in your app. Here are some handy patterns for managing page
-          data in Storybook:
+          Render pages with mock data. This makes it easy to build and review
+          page states without needing to navigate to them in your app. Here are
+          some handy patterns for managing page data in Storybook:
         </Text>
         <View>
           <Text>
-            Use a higher-level connected component. Storybook helps you compose such data from the
-            "args" of child component stories
+            Use a higher-level connected component. Storybook helps you compose
+            such data from the "args" of child component stories
           </Text>
           <Text>
-            Assemble data in the page component from your services. You can mock these services out
-            using Storybook.
+            Assemble data in the page component from your services. You can mock
+            these services out using Storybook.
           </Text>
         </View>
         <Text style={styles.p}>
@@ -55,8 +54,7 @@ export const Page = () => {
             role="link"
             onPress={() => {
               Linking.openURL('https://storybook.js.org/tutorials/');
-            }}
-          >
+            }}>
             Storybook tutorials
           </Text>
           . Read more in the{' '}
@@ -65,8 +63,7 @@ export const Page = () => {
             role="link"
             onPress={() => {
               Linking.openURL('https://storybook.js.org/docs');
-            }}
-          >
+            }}>
             docs
           </Text>
           .
