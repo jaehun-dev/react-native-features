@@ -1,9 +1,9 @@
-import {Text, View} from 'react-native';
+import {SafeAreaView, Text} from 'react-native';
 
 export default function App() {
   return (
-    <View>
+    <SafeAreaView>
       <Text>Hello World</Text>
-    </View>
+    </SafeAreaView>
   );
 }
