@@ -5,7 +5,7 @@
   "scripts": {
     "postinstall": "npx pod-install ios",
     "android": "react-native run-android --port 8082",
-    "ios": "react-native run-ios --port 8082 --device 'Jack'",
+    "ios": "react-native run-ios --port 8082",
     "format": "prettier --write --ignore-unknown \"src/**/*.{js,jsx,ts,tsx}\"",
     "lint": "eslint .",
     "start": "react-native start --port 8082",
@@ -15,7 +15,8 @@
     "@react-navigation/stack": "^7.4.1",
     "react": "19.0.0",
     "react-native": "0.79.2",
-    "react-native-gesture-handler": "^2.26.0"
+    "react-native-gesture-handler": "^2.26.0",
+    "react-native-safe-area-context": "^5.5.0"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
