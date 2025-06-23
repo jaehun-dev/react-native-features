@@ -5,7 +5,7 @@
   "scripts": {
     "postinstall": "npx pod-install ios",
     "android": "react-native run-android --port 8082",
-    "ios": "react-native run-ios --port 8082 --device 'Jack'",
+    "ios": "react-native run-ios --port 8082",
     "format": "prettier --write --ignore-unknown \"src/**/*.{js,jsx,ts,tsx}\"",
     "lint": "eslint .",
     "start": "react-native start --port 8082",
