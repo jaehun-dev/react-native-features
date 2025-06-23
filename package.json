@@ -12,6 +12,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "@react-navigation/drawer": "^7.5.1",
     "react": "19.0.0",
     "react-native": "0.79.2"
   },
